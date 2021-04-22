@@ -1,0 +1,50 @@
+int baselineTemp = 0;
+int celsius = 0;
+int fahrenheit = 0;
+int celsius1 = 0;
+int fahrenheit1 = 0;
+int pH=0;
+int moist = 0;
+
+void setup()
+{
+  pinMode(2,INPUT);
+  pinMode(A3,INPUT);
+  pinMode(A2,INPUT);
+  pinMode(A1,INPUT);
+  pinMode(A0,INPUT);
+  
+  Serial.begin(9600);  
+}
+
+void loop()
+{
+  baselineTemp = 40;
+  
+  celsius = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125); 
+ celsius1 = map(((analogRead(A1) - 20) * 3.04), 0, 1023, -40, 125);
+   
+
+ int gas = analogRead(2);
+ gas =  map(gas, 300, 750, 0, 100);
+  
+  int pH = analogRead(A3);
+  pH =  map(pH, 300, 750, 0, 100);
+  
+  moist=analogRead(A4);
+Serial.print("moisture level");
+Serial.println(moist);
+  
+  
+ /*   Serial.println("pH,"); 
+  Serial.print(pH);
+  /*
+  Serial.println("Gas,"); 
+  Serial.print(gas);
+  Serial.print(celsius);
+  Serial.println(" soil temp, ");
+  Serial.print(celsius1);
+  Serial.println(" environment temp, ");
+  */
+  
+}
