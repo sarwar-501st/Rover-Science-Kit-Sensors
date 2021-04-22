@@ -1,4 +1,4 @@
-int baselineTemp = 0;
+int baseTemp = 0;
 int celsius = 0;
 int fahrenheit = 0;
 int celsius1 = 0;
@@ -19,9 +19,9 @@ void setup()
 
 void loop()
 {
-  baselineTemp = 40;
+  baseTemp = 40;
   
-  celsius = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125); 
+  celsius = map(((analogRead(A0) - 20) * 3.04), 0, 1023, -40, 125);   # mapping 
  celsius1 = map(((analogRead(A1) - 20) * 3.04), 0, 1023, -40, 125);
    
 
